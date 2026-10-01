@@ -243,7 +243,9 @@
     }, { threshold: [0, 0.1, 0.5] });
     io.observe(hero);
     let covered = false, coverAt = hero.offsetHeight * 0.9;
-    window.addEventListener('resize', () => { coverAt = hero.offsetHeight * 0.9; }, { passive: true });
+    const measureCover = () => { coverAt = hero.offsetHeight * 0.9; };
+    window.addEventListener('resize', measureCover, { passive: true });
+    window.addEventListener('load', measureCover);   // main.js can run before the stylesheet has applied (seen in WebKit): measure again once it has
     window.addEventListener('scroll', () => {
       const c = window.scrollY > coverAt;
       if (c === covered) return;
@@ -277,7 +279,9 @@
   }
   function initNav() {
     heroH = hero ? hero.offsetHeight : 0;
-    window.addEventListener('resize', () => { heroH = hero ? hero.offsetHeight : 0; solid = null; onScroll(); }, { passive: true });
+    const measureHero = () => { heroH = hero ? hero.offsetHeight : 0; solid = null; onScroll(); };
+    window.addEventListener('resize', measureHero, { passive: true });
+    window.addEventListener('load', measureHero);   // same: the first measure can come before the stylesheet
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     if (!toggle || !sheet) return;
