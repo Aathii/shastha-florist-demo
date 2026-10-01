@@ -1,5 +1,5 @@
 /* Storefront film website — page behaviour
-   1. Intro: three small icons, the name, then the screen lifts (~2 s)
+   1. Intro: petals fall while a flower blooms, the name settles, then the view dives into the flower (~2.3 s)
    2. The opening film: one continuous video, autoplay and muted; the logo lands as the camera settles. Autoplay
       refused (iPhone Low Power Mode): first frame + play button. Film failed or stalled: last frame + logo.
    3. Nav state + mobile menu sheet
@@ -45,7 +45,7 @@
   const intro = $('#intro');
   let introDone = false;
   const onIntroDone = [];
-  const behindIntro = () => [$('#nav'), $('main'), $('.footer'), $('#actionBar')].filter(Boolean);
+  const behindIntro = () => [$('.skip-link'), $('#nav'), $('main'), $('.footer'), $('#actionBar')].filter(Boolean);
   function finishIntro() {
     if (introDone) return;
     introDone = true;
@@ -60,21 +60,22 @@
     document.body.style.overflow = 'hidden';
     window.scrollTo(0, 0);
     behindIntro().forEach(el => el.setAttribute('inert', ''));
-    const treats = $$('#introStage svg');
-    const word = $('#introWord'), rule = $('#introRule'), sub = $('#introSub');
+    // Shastha: petals drift down (CSS) while the flower opens ring by ring; the name settles under it; then
+    // finishIntro() adds .is-done and the CSS dives into the flower's heart as the film starts underneath.
+    const bloom = $('#bloom'), word = $('#introWord'), rule = $('#introRule'), sub = $('#introSub');
+    const show = el => { if (el) el.classList.add('is-in'); };
     if (reduceMotion) {
-      treats[0].classList.add('is-in'); word.classList.add('is-in'); rule.classList.add('is-in'); sub.classList.add('is-in');
+      [bloom, word, rule, sub].forEach(show);
       setTimeout(finishIntro, 700);
       return;
     }
-    const STEP = 520, HOLD = 240;
-    treats.forEach((t, i) => {
-      setTimeout(() => t.classList.add('is-in'), i * STEP);
-      if (i < treats.length - 1) setTimeout(() => { t.classList.remove('is-in'); t.classList.add('is-out'); }, i * STEP + STEP - HOLD + 120);
-    });
-    setTimeout(() => { word.classList.add('is-in'); rule.classList.add('is-in'); }, 260);
-    setTimeout(() => sub.classList.add('is-in'), 700);
-    setTimeout(finishIntro, treats.length * STEP + 520);
+    if (bloom) { void bloom.offsetWidth; show(bloom); }   // start now: waiting for a frame stalled it on a busy first load
+    setTimeout(() => { show(word); show(rule); }, 650);
+    setTimeout(() => show(sub), 1000);
+    setTimeout(() => {   // the circle opens from the flower's heart: tell the mask where that is on this screen
+      try { const r = bloom.getBoundingClientRect(); intro.style.setProperty('--hx', (r.left + r.width / 2) + 'px'); intro.style.setProperty('--hy', (r.top + r.height / 2) + 'px'); } catch (e) {}
+      finishIntro();
+    }, 2400);
   }
 
   /* ---------- 2. the opening film ----------
@@ -124,9 +125,12 @@
       video.poster = FILM[o].poster;
       video.src = FILM[o][tier];
       video.dataset.tier = o + '-' + tier;
-      still.src = FILM[o].last;
+      still.dataset.src = FILM[o].last;
+      if (stillWanted) still.src = FILM[o].last;
       return true;
     }
+    let stillWanted = false;
+    function wantStill() { if (!stillWanted) { stillWanted = true; if (still.dataset.src) still.src = still.dataset.src; } }
     function setBlocked(on) { blocked = on; hero.classList.toggle('is-blocked', on); }
     function tryPlay(retry) {
       wantPlay = true;
@@ -134,6 +138,7 @@
       try { pr = video.play(); } catch (e) { pr = Promise.reject(e); }
       if (!pr || !pr.then) return;
       pr.then(() => { hasPlayed = true; setBlocked(false); playBtn.hidden = true; }).catch(err => {
+        if (failed || !wantPlay) return;   // skipped or failed meanwhile: pause() rejected this play(), do not retry it
         if (err && err.name === 'AbortError' && !retry) { setTimeout(() => tryPlay(true), 1500); return; }
         if (err && err.name !== 'NotAllowedError' && err.name !== 'AbortError') { filmFailed(false); return; }   // cannot be played at all (unsupported, file failed)
         // autoplay refused (an iPhone in Low Power Mode, data saver, a browser setting): the opening frame stays with a
@@ -151,7 +156,7 @@
       failed = true; wantPlay = false; clearTimeout(watchdog);
       try { video.pause(); } catch (e) {}
       setBlocked(false);
-      still.classList.add('is-on'); reveal(); paintFill();
+      wantStill(); still.classList.add('is-on'); reveal(); paintFill();
       playBtn.hidden = !canRetry;
       bar.style.transform = 'scaleX(1)';
     }
@@ -170,11 +175,11 @@
       watchdog = setTimeout(() => { if (!hasPlayed && !blocked && !ended) filmFailed(true); }, 12000);
     }
     function showLastFrame() {
-      ended = true; still.classList.add('is-on'); reveal(); paintFill();
+      ended = true; wantStill(); still.classList.add('is-on'); reveal(); paintFill();
       bar.style.transform = 'scaleX(1)'; skipBtn.textContent = 'Replay film';
     }
     function startFilm() {
-      if (reduceMotion) { still.classList.add('is-on'); reveal(); playBtn.hidden = false; skipBtn.textContent = 'Explore the site'; return; }
+      if (reduceMotion) { wantStill(); still.classList.add('is-on'); reveal(); playBtn.hidden = false; skipBtn.textContent = 'Explore the site'; return; }
       if (skipIntro) { showLastFrame(); return; }
       tryPlay(false);   // play() loads the video itself; waiting for metadata first stalls where nothing preloads
       watchdog = setTimeout(() => { if (!hasPlayed && !blocked && !ended) filmFailed(true); }, 12000);
@@ -203,7 +208,7 @@
       const kick = () => { video.preload = 'auto'; video.load(); };
       if ('requestIdleCallback' in window) requestIdleCallback(kick, { timeout: 600 }); else setTimeout(kick, 250);
     }
-    video.addEventListener('playing', () => { clearTimeout(watchdog); hero.classList.add('is-playing'); if (!raf) raf = requestAnimationFrame(frame); });
+    video.addEventListener('playing', () => { clearTimeout(watchdog); wantStill(); hero.classList.add('is-playing'); if (!raf) raf = requestAnimationFrame(frame); });
     video.addEventListener('error', () => filmFailed(false));
     video.addEventListener('timeupdate', () => { paintFill(); if (!ended && video.currentTime >= FILM.settle) reveal(); });   // backup when frame callbacks are throttled
     video.addEventListener('seeked', paintFill);
@@ -218,10 +223,11 @@
     hero.addEventListener('click', e => { if (blocked && !e.target.closest('a, button')) playFromTap(); });
     skipBtn.addEventListener('click', () => {
       if (ended) { replay(); return; }
-      if (!video.paused) video.pause();
+      clearTimeout(watchdog);   // a skipped film must not come back as a 'stalled' play button
       wantPlay = false;
+      if (!video.paused) video.pause();
       setBlocked(false);
-      still.classList.add('is-on');
+      wantStill(); still.classList.add('is-on');
       reveal(); paintFill();
       const s = $('#story');
       s.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
@@ -236,12 +242,22 @@
       });
     }, { threshold: [0, 0.1, 0.5] });
     io.observe(hero);
+    let covered = false, coverAt = hero.offsetHeight * 0.9;
+    window.addEventListener('resize', () => { coverAt = hero.offsetHeight * 0.9; }, { passive: true });
+    window.addEventListener('scroll', () => {
+      const c = window.scrollY > coverAt;
+      if (c === covered) return;
+      covered = c; hero.classList.toggle('is-covered', c);
+      if (!hasPlayed || ended || !wantPlay) return;
+      if (c && !video.paused) video.pause(); else if (!c && video.paused) video.play().catch(() => {});
+    }, { passive: true });
     // phone rotated: load the film cut for the new orientation and carry on from the same moment
     window.addEventListener('resize', () => {
       const t = video.currentTime, was = !video.paused;
+      if (ended || failed) video.preload = 'none';
       const changed = pickSource();
       layoutFilm();
-      if (changed && !reduceMotion && (!skipIntro || wantPlay)) {
+      if (changed && !reduceMotion && !ended && !failed && (!skipIntro || wantPlay)) {
         video.load();
         video.addEventListener('loadedmetadata', () => { try { video.currentTime = Math.min(t, (video.duration || t)); } catch (e) {} if (was) tryPlay(false); }, { once: true });
       }
@@ -274,7 +290,7 @@
       sheet.toggleAttribute('inert', !state);
       [$('main'), $('.footer'), actionBar].filter(Boolean).forEach(el => el.toggleAttribute('inert', state));
     };
-    onMq(window.matchMedia('(min-width: 900px)'), e => { if (e.matches && sheet.classList.contains('is-open')) open(false); });
+    onMq(window.matchMedia('(min-width: 1240px)'), e => { if (e.matches && sheet.classList.contains('is-open')) open(false); });
     sheet.setAttribute('inert', '');
     toggle.addEventListener('click', () => open(!sheet.classList.contains('is-open')));
     $$('a', sheet).forEach(a => a.addEventListener('click', () => open(false)));
