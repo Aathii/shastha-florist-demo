@@ -457,3 +457,5 @@ h2 em { font-style: italic; font-weight: 400; color: var(--accent-deep); font-va
 }
 /* small phones: the caption wraps beside the "Scroll down" pill instead of running under it */
 @media (max-width: 480px) { .hero-caption { max-width: calc(100% - 205px); } }
+/* the reveal animation starts photos at 106 %: keep that from widening the page by a pixel (WebKit, phone landscape) */
+.page { overflow-x: clip; }
