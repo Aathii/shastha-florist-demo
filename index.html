@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no"><!-- iPhone Safari must not turn plain numbers into big links; real tel: links are written by hand -->
+  <title>Shastha Florist · Florist and pooja supplies in Scarborough</title>
+  <meta name="description" content="Shastha Florist, 5930 Finch Ave E, Unit 3, Scarborough: roses and carnations, bouquets made to order, garlands and pooja supplies. Open daily 9 am to 9 pm. Call (416) 299-4010.">
+  <meta name="robots" content="noindex, nofollow"><!-- demo: keep out of search engines until the owner owns the site -->
+  <script>
+    /* No loading screen only when a visitor really is coming back: from the menu page (its logo, once the film has played in
+       this tab; or a section link), a
+       section link (#hash, only from the menu page or once the film has played in this tab: a pasted link with a #hash still opens
+       with the film), or Back after tapping a menu link (main.js leaves a 30-minute note in sessionStorage when a
+       menu link is tapped). A bare "restored" load does not count: iPhone Safari reports reopening a tab, or coming back
+       from another app, as back_forward, which used to skip the film and jump to the last scroll position. */
+    (function () {
+      try {
+        var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0], type = n ? n.type : '', fromMenu = false, trip = false, seen = false;
+        try { var u = new URL(document.referrer); fromMenu = u.origin === location.origin && /\/menu(\.html)?$/.test(u.pathname); } catch (e) {}
+        try {
+          seen = sessionStorage.getItem('nc-seen') === '1';   // the loading screen and film have already played in this tab
+          var t = parseInt(sessionStorage.getItem('nc-menu-trip') || '0', 10);
+          trip = type === 'back_forward' && t > 0 && Date.now() - t < 30 * 60 * 1000;
+          if (type !== 'back_forward') sessionStorage.removeItem('nc-menu-trip');
+        } catch (e) {}
+        var keepHash = location.hash && location.hash !== '#top' && (seen || fromMenu);
+        if (keepHash || trip || (type === 'navigate' && fromMenu && seen)) document.documentElement.classList.add('skip-intro');
+        else if (location.hash && type !== 'back_forward') history.replaceState(null, '', location.pathname + location.search);   // a pasted link: open at the top, with the film
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="theme-color" content="#140C0D">
+  <meta property="og:title" content="Shastha Florist · Scarborough">
+  <meta property="og:description" content="Roses, carnations, bouquets made to order, garlands and pooja supplies at Morningside and Finch. Open daily 9 am to 9 pm.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://aathii.github.io/shastha-florist-demo/media/film/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:url" content="https://aathii.github.io/shastha-florist-demo/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://aathii.github.io/shastha-florist-demo/media/film/og.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="media/logo/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="media/logo/favicon-64.png">
+  <link rel="apple-touch-icon" href="media/logo/apple-touch-icon.png">
+  <link rel="preload" href="fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="media/film/poster-l.jpg" as="image" media="(orientation: landscape)" fetchpriority="high">
+  <link rel="preload" href="media/film/poster-p.jpg" as="image" media="(orientation: portrait)" fetchpriority="high">
+  <link rel="preload" href="media/logo/logo-512.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.intro,.menu-sheet{display:none}.hero-logo,.hero-tag,.hero-meta,.hero-actions{opacity:1;transform:none;visibility:visible}</style></noscript>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Florist",
+    "name": "Shastha Florist",
+    "telephone": "+1-416-299-4010",
+    "address": { "@type": "PostalAddress", "streetAddress": "5930 Finch Ave E, Unit 3", "addressLocality": "Scarborough", "addressRegion": "ON", "postalCode": "M1B 5P8", "addressCountry": "CA" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 43.8178207, "longitude": -79.223307 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "09:00", "closes": "21:00" }
+    ],
+    "sameAs": ["https://www.instagram.com/shastha__florist/", "https://www.tiktok.com/@shastha.florist"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#story">Skip to content</a>
+
+  <!-- Loading screen: a rose, a wrapped bouquet, a pooja lamp; then the name and the shop's own words -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <div class="intro-stage" id="introStage">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1A1512" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M32 37v21" stroke="#3E7C3A"/>
+          <path d="M32 52c-7 0-11-3.5-13-8 6-1.2 10.5 1.5 13 8z" fill="#5E9A4E"/>
+          <path d="M32 47c5.5-.8 9.5-4 11-8.5-5.5 0-9 3-11 8.5z" fill="#5E9A4E"/>
+          <path d="M19 21c0-7.5 5.8-12.5 13-12.5S45 13.5 45 21c0 9.5-5.8 16.5-13 16.5S19 30.5 19 21z" fill="#B3242F"/>
+          <path d="M25 19.5c1.8-3.8 4.4-5.5 7-5.5s5.4 1.8 7 5.5c-1.8 4.4-4.4 6.5-7 6.5s-5.2-2.1-7-6.5z" fill="#D8414F"/>
+          <path d="M29 19.5c.8-1.6 2-2.4 3-2.4s2.3.8 3 2.4"/>
+          <path d="M20 24.5c3.8 3.4 7.8 5 12 5s8.2-1.6 12-5"/>
+        </svg>
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1A1512" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M14 22c2-5 6-7.5 10.5-7M50 22c-2-5-6-7.5-10.5-7" stroke="#3E7C3A"/>
+          <circle cx="23" cy="24" r="7.5" fill="#B3242F"/>
+          <circle cx="41" cy="24" r="7.5" fill="#E9B23C"/>
+          <circle cx="32" cy="15.5" r="7.5" fill="#F09AB0"/>
+          <path d="M20 24c1.2-2 4.8-2 6 0M38 24c1.2-2 4.8-2 6 0M29 15.5c1.2-2 4.8-2 6 0"/>
+          <path d="M15 29h34L32 58z" fill="#F4E6CC"/>
+          <path d="M20.5 29 32 52.5 43.5 29" stroke="#B8923F" stroke-width="1.8"/>
+          <path d="M27 45c-4.5 1.6-6.6 4.2-6 6.6 3.4.2 6.6-2.4 11-4.6 4.4 2.2 7.6 4.8 11 4.6.6-2.4-1.5-5-6-6.6" fill="#B3242F"/>
+        </svg>
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1A1512" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M32 10c-5.5 7.5-7.5 12.5-7.5 16.5a7.5 7.5 0 0 0 15 0c0-4-2-9-7.5-16.5z" fill="#F2B63D"/>
+          <path d="M32 20c-2.2 3.2-3.2 5.4-3.2 7.2a3.2 3.2 0 0 0 6.4 0c0-1.8-1-4-3.2-7.2z" fill="#D8414F" stroke-width="1.8"/>
+          <path d="M32 34v4.5"/>
+          <path d="M9 39h46c0 8.5-10 14-23 14S9 47.5 9 39z" fill="#D9A43A"/>
+          <path d="M14 44c5 2.6 11 3.6 18 3.6s13-1 18-3.6" stroke="#8C6A1E" stroke-width="1.6"/>
+          <path d="M25 53h14l-1.8 5H26.8z" fill="#B8923F"/>
+        </svg>
+      </div>
+      <div class="intro-word" id="introWord">Shastha Florist</div>
+      <div class="intro-rule" id="introRule"></div>
+      <div class="intro-sub" id="introSub">Fresh flowers · Pooja supplies</div>
+    </div>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Shastha Florist, back to top">
+        <img src="media/logo/logo-96.webp" width="40" height="40" alt="">
+        <span>Shastha Florist</span>
+      </a>
+      <nav class="nav-primary" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#dishes">Bouquets</a></li>
+          <li><a href="#cakes">Pooja</a></li>
+          <li><a href="#menu">The shop</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-fill" href="tel:+14162994010" aria-label="Call (416) 299-4010">Call</a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="menuSheet" aria-label="Open menu">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav class="menu-sheet" id="menuSheet" aria-label="Site menu" inert>
+    <a href="#dishes">Bouquets</a>
+    <a href="#cakes">Pooja</a>
+    <a href="#menu">The shop</a>
+    <a href="#visit">Visit</a>
+    <a class="btn btn-fill" href="tel:+14162994010">Call to order</a>
+    <p class="meta">5930 Finch Ave E, Unit 3 · <a href="tel:+14162994010">(416) 299-4010</a></p>
+  </nav>
+
+  <main id="top">
+    <section class="hero" id="hero" data-settle="4.35" aria-label="Opening film: the Shastha Florist storefront at night, then through the front door into the shop">
+      <div class="hero-media">
+        <canvas class="hero-fill" id="heroFill" width="48" height="27" aria-hidden="true"></canvas>
+        <picture>
+          <source media="(orientation: portrait)" srcset="media/film/poster-p.jpg" width="900" height="1600">
+          <img class="hero-poster" id="heroPoster" src="media/film/poster-l.jpg" width="1600" height="900" alt="" fetchpriority="high">
+        </picture>
+        <video class="hero-video" id="film" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+        <img class="hero-still" id="heroStill" alt="" aria-hidden="true">
+        <div class="hero-scrim"></div>
+      </div>
+      <button class="hero-play" id="heroPlay" type="button" hidden aria-label="Play the film">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="hero-reveal" id="heroReveal">
+        <div class="hero-glow"></div>
+        <picture>
+          <source srcset="media/logo/logo-512.webp" type="image/webp">
+          <img class="hero-logo" src="media/logo/logo-512.png" width="512" height="512" alt="Shastha Florist">
+        </picture>
+        <h1 class="hero-tag">Bringing modern elegance to <em>every</em> petal</h1>
+        <p class="hero-meta"><span class="hero-meta-long">5930 Finch Ave E · </span>Scarborough · Daily 9 am – 9 pm</p>
+        <div class="hero-actions">
+          <a class="btn btn-fill" href="tel:+14162994010">Call to order</a>
+          <a class="btn btn-outline" href="#dishes">See the bouquets</a>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <button class="hero-scroll" id="heroScroll" type="button" aria-label="Scroll down to see more">
+          <span class="hero-scroll-arrow" aria-hidden="true"><svg viewBox="0 0 12 16" focusable="false"><path d="M6 1.75v11.5M1.75 9 6 13.25 10.25 9"/></svg></span>
+          <span class="hero-scroll-label">Scroll down</span>
+        </button>
+        <p class="hero-caption">Morningside &amp; Finch · Scarborough</p>
+        <button class="btn skip-film" id="skipFilm" type="button">Skip film</button>
+      </div>
+      <div class="hero-progress" aria-hidden="true"><span id="heroProgress"></span></div>
+    </section>
+
+    <div class="page">
+      <section class="band" id="story">
+        <div class="container story-grid">
+          <div class="story-copy reveal">
+            <p class="eyebrow">Morningside &amp; Finch</p>
+            <h2>Bouquets, garlands and pooja needs.</h2>
+            <blockquote class="quote">
+              “You can tell that a lot of care goes into each arrangement.”
+              <cite>Jivi N., Google review</cite>
+            </blockquote>
+            <p>Step in under the red awning and the coolers are full: roses in red, yellow, pink and white, buckets of carnations, baby’s breath for the finishing touch. Around them sit garlands, deity statues and the everyday pooja supplies, so the flowers for a birthday and the flowers for a pooja come from the same counter.</p>
+            <p class="proof-line">4.7 stars on Google from 17 reviews</p>
+            <div class="story-actions">
+              <a class="btn btn-outline" href="#dishes">See the bouquets</a>
+              <a class="text-link" href="tel:+14162994010">Call (416) 299-4010</a>
+            </div>
+          </div>
+          <figure class="story-photo reveal-photo">
+            <img src="media/img/storefront-day-1600.jpg" srcset="media/img/storefront-day-800.webp 800w, media/img/storefront-day-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 92vw" width="1600" height="1200" alt="The Shastha Florist storefront by day: a red dome awning over the glass door, the red and gold sign above a window of flower posters" loading="lazy">
+            <figcaption>Unit 3, under the red awning</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band rail-section" id="dishes">
+        <div class="rail-pin" id="railPin">
+          <div class="container band-head reveal">
+            <p class="eyebrow">Bouquets</p>
+            <h2>Wrapped <em>to order</em>.</h2>
+            <p class="hint"><span class="hint-swipe">Swipe sideways · </span>Call ahead and we will have yours ready.</p>
+          </div>
+          <div class="rail-track" id="railTrack">
+            <article class="card">
+              <div class="card-photo"><img src="media/img/bouquet-red-roses-800.jpg" srcset="media/img/bouquet-red-roses-800.webp 800w, media/img/bouquet-red-roses-1600.webp 1600w" sizes="(min-width: 1000px) 420px, 78vw" width="1600" height="1200" alt="A bouquet of deep red roses with baby's breath and green leaves in cream wrap edged in gold" loading="lazy"></div>
+              <div class="card-body">
+                <p class="eyebrow">Roses</p>
+                <h3>Red rose bouquet</h3>
+                <p>Deep red roses with baby’s breath and fresh greens, wrapped in cream with a gold edge.</p>
+                <div class="card-foot"><a class="btn btn-fill" href="tel:+14162994010" aria-label="Call to order the red rose bouquet, (416) 299-4010">Call to order</a></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-photo"><img src="media/img/bouquet-pink-red-roses-800.jpg" srcset="media/img/bouquet-pink-red-roses-800.webp 600w, media/img/bouquet-pink-red-roses-1600.webp 1200w" sizes="(min-width: 1000px) 420px, 78vw" width="1200" height="1600" alt="Pink and red roses with baby's breath and greenery in a cream and gold wrap" loading="lazy"></div>
+              <div class="card-body">
+                <p class="eyebrow">Roses</p>
+                <h3>Pink and red roses</h3>
+                <p>Soft pink roses among red ones, with baby’s breath and greenery in a cream and gold wrap.</p>
+                <div class="card-foot"><a class="btn btn-fill" href="tel:+14162994010" aria-label="Call to order the pink and red roses, (416) 299-4010">Call to order</a></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-photo"><img src="media/img/bouquet-red-yellow-800.jpg" srcset="media/img/bouquet-red-yellow-800.webp 561w, media/img/bouquet-red-yellow-1600.webp 800w" sizes="(min-width: 1000px) 420px, 78vw" width="800" height="1140" alt="Red and yellow roses clouded with baby's breath in a cream wrap with a gold edge" loading="lazy"></div>
+              <div class="card-body">
+                <p class="eyebrow">Roses</p>
+                <h3>Red and yellow roses</h3>
+                <p>Yellow roses ringed with red, clouded in baby’s breath, in a cream and gold wrap.</p>
+                <div class="card-foot"><a class="btn btn-fill" href="tel:+14162994010" aria-label="Call to order the red and yellow roses, (416) 299-4010">Call to order</a></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-photo"><img src="media/img/bouquet-white-red-800.jpg" srcset="media/img/bouquet-white-red-800.webp 800w, media/img/bouquet-white-red-1600.webp 1600w" sizes="(min-width: 1000px) 420px, 78vw" width="1600" height="1457" alt="A hand-tied bouquet of white roses with red roses and silvery greenery, the stems wrapped in white ribbon" loading="lazy"></div>
+              <div class="card-body">
+                <p class="eyebrow">Roses</p>
+                <h3>White and red roses</h3>
+                <p>White roses with red ones tucked in, silvery greenery and stems wrapped in white ribbon.</p>
+                <div class="card-foot"><a class="btn btn-fill" href="tel:+14162994010" aria-label="Call to order the white and red roses, (416) 299-4010">Call to order</a></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-photo"><img src="media/img/bouquet-carnations-red-wrap-800.jpg" srcset="media/img/bouquet-carnations-red-wrap-800.webp 567w, media/img/bouquet-carnations-red-wrap-1600.webp 1134w" sizes="(min-width: 1000px) 420px, 78vw" width="1134" height="1600" alt="Pink, white and red carnations with baby's breath in a red wrap" loading="lazy"></div>
+              <div class="card-body">
+                <p class="eyebrow">Carnations</p>
+                <h3>Carnation bouquet</h3>
+                <p>Pink, white and red carnations with baby’s breath, wrapped in red.</p>
+                <div class="card-foot"><a class="btn btn-fill" href="tel:+14162994010" aria-label="Call to order the carnation bouquet, (416) 299-4010">Call to order</a></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-photo"><img src="media/img/bouquet-carnations-blush-800.jpg" srcset="media/img/bouquet-carnations-blush-800.webp 703w, media/img/bouquet-carnations-blush-1600.webp 1406w" sizes="(min-width: 1000px) 420px, 78vw" width="1406" height="1600" alt="Red and white carnations with baby's breath in a blush pink wrap" loading="lazy"></div>
+              <div class="card-body">
+                <p class="eyebrow">Carnations</p>
+                <h3>Red and white carnations</h3>
+                <p>Red and white carnations with baby’s breath in a blush wrap.</p>
+                <div class="card-foot"><a class="btn btn-fill" href="tel:+14162994010" aria-label="Call to order the red and white carnations, (416) 299-4010">Call to order</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band dark slats" id="cakes">
+        <div class="container">
+          <div class="band-head reveal">
+            <p class="eyebrow">Pooja and garlands</p>
+            <h2>For the shrine <em>at home</em>.</h2>
+            <p class="lede">Garlands for poojas and weddings, deity statues, framed prints and the everyday pooja supplies, on the shelves beside the flowers.</p>
+          </div>
+          <div class="gallery trio">
+            <figure class="tall reveal-photo"><img src="media/img/statues-800.jpg" srcset="media/img/statues-800.webp 640w, media/img/statues-1600.webp 1280w" sizes="(min-width: 760px) 40vw, 92vw" width="1280" height="1600" alt="Seated Sai Baba statues in gold, silver and saffron on a white shelf" loading="lazy"><figcaption>Sai Baba statues in gold, silver and saffron</figcaption></figure>
+            <figure class="reveal-photo"><img src="media/img/carnation-buckets-800.jpg" srcset="media/img/carnation-buckets-800.webp 690w" sizes="(min-width: 760px) 50vw, 92vw" width="690" height="312" alt="Buckets of carnations in cream, red, pink and purple" loading="lazy"><figcaption>Carnations by the bucket</figcaption></figure>
+            <figure class="reveal-photo"><img src="media/img/pooja-shelves-800.jpg" srcset="media/img/pooja-shelves-800.webp 585w" sizes="(min-width: 760px) 50vw, 92vw" width="585" height="270" alt="A framed print of Hindu deities on a white shelf above boxes of pooja supplies" loading="lazy"><figcaption>Framed deity prints above the pooja supplies</figcaption></figure>
+          </div>
+          <div class="cake-cta reveal">
+            <a class="btn btn-light" href="tel:+14162994010">Call to order a garland</a>
+            <a class="text-link" href="https://www.instagram.com/shastha__florist/" target="_blank" rel="noopener">or follow @shastha__florist</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band dark" id="menu" style="background: var(--dark-2)">
+        <div class="container">
+          <div class="band-head reveal">
+            <p class="eyebrow">What we carry</p>
+            <h2>The shop, in short.</h2>
+            <p class="lede">Fresh flowers in the coolers, pooja needs on the shelves. This is what the shop’s own posts and its customers mention.</p>
+          </div>
+          <div class="menu-grid">
+            <div class="menu-col reveal">
+              <h3>Flowers</h3>
+              <ul class="menu-list">
+                <li><span class="name">Roses</span><span class="note">red, yellow, pink, white</span></li>
+                <li><span class="name">Carnations</span><span class="note">red, pink, white, cream</span></li>
+                <li><span class="name">Baby’s breath</span></li>
+                <li><span class="name">Bouquets</span><span class="note">custom arrangements</span></li>
+                <li><span class="name">Flower decor</span></li>
+                <li><span class="name">Paan leaf and insulin plants</span><span class="note">potted</span></li>
+              </ul>
+            </div>
+            <div class="menu-col reveal">
+              <h3>Pooja and garlands</h3>
+              <ul class="menu-list">
+                <li><span class="name">Garlands</span><span class="note">custom orders with notice</span></li>
+                <li><span class="name">Hair pieces</span></li>
+                <li><span class="name">Arugampul malai</span><span class="note">for Vinayagar Chathurthi</span></li>
+                <li><span class="name">Erukkam poo</span><span class="note">milkweed flower</span></li>
+                <li><span class="name">Deity statues and framed prints</span></li>
+                <li><span class="name">Pooja supplies</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="menu-note">From the shop’s own TikTok and Instagram posts and its Google reviews, October 2026. What is in the coolers changes with the season: call <a class="text-link" href="tel:+14162994010">(416) 299-4010</a> for today’s flowers and prices.</p>
+        </div>
+      </section>
+
+      <section class="band" id="reviews">
+        <div class="container">
+          <div class="band-head reveal">
+            <p class="eyebrow">What people say</p>
+            <h2>Fresh flowers, <em>fair</em> prices.</h2>
+          </div>
+          <div class="proof-grid">
+            <div class="rating reveal">
+              <div class="num">4.7</div>
+              <div class="stars">out of 5</div>
+              <small>Google rating · 17 reviews · October 2026</small>
+            </div>
+            <blockquote class="review reveal">
+              <p>“…The bouquet was absolutely beautiful, and the service was amazing from start to finish.”</p>
+              <cite>Maryam M. · Google review</cite>
+            </blockquote>
+            <blockquote class="review reveal">
+              <p>“I bought some carnations for a pooja from here recently. Price is good and the service is even better.”</p>
+              <cite>Hamzny K. · Google review</cite>
+            </blockquote>
+            <blockquote class="review reveal">
+              <p>“The flowers are fresh, beautifully designed, and the presentation is lovely.”</p>
+              <cite>Aishani · Google review</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-strip" id="order">
+        <div class="container order-inner">
+          <div class="reveal">
+            <h2>Order by phone.</h2>
+            <p>Bouquets, garlands and pooja orders: call the shop, then pick up at Unit 3.</p>
+          </div>
+          <div class="order-actions reveal">
+            <a class="btn btn-light" href="tel:+14162994010">Call (416) 299-4010</a>
+            <a class="btn btn-outline" href="https://www.instagram.com/shastha__florist/" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)">Instagram</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="visit" style="background: var(--surface-2)">
+        <div class="container visit-grid">
+          <div class="reveal">
+            <h2 class="eyebrow">Visit</h2>
+            <p class="address">5930 Finch Ave E, Unit 3<br>Scarborough, ON M1B 5P8</p>
+            <div class="chip" id="openChip">Daily 9 am – 9 pm</div>
+            <table class="hours" id="hours">
+              <caption class="visually-hidden">Opening hours</caption>
+              <tbody>
+                <tr data-day="1"><th scope="row">Monday</th><td>9 am – 9 pm</td></tr>
+                <tr data-day="2"><th scope="row">Tuesday</th><td>9 am – 9 pm</td></tr>
+                <tr data-day="3"><th scope="row">Wednesday</th><td>9 am – 9 pm</td></tr>
+                <tr data-day="4"><th scope="row">Thursday</th><td>9 am – 9 pm</td></tr>
+                <tr data-day="5"><th scope="row">Friday</th><td>9 am – 9 pm</td></tr>
+                <tr data-day="6"><th scope="row">Saturday</th><td>9 am – 9 pm</td></tr>
+                <tr data-day="0"><th scope="row">Sunday</th><td>9 am – 9 pm</td></tr>
+              </tbody>
+            </table>
+            <div class="visit-actions">
+              <a class="btn btn-fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Shastha+Florist%2C+5930+Finch+Ave+E%2C+Scarborough%2C+ON+M1B+5P8" target="_blank" rel="noopener">Get directions</a>
+              <a class="btn btn-outline" href="tel:+14162994010">Call (416) 299-4010</a>
+            </div>
+            <p class="visit-note">In the Eraa Town Centre plaza at Morningside &amp; Finch, beside the Fish &amp; Meat entrance, with plaza parking out front. Hours from Google, October 2026.</p>
+          </div>
+          <div class="map reveal-photo">
+            <iframe src="https://www.google.com/maps?q=Shastha+Florist%2C+5930+Finch+Ave+E%2C+Scarborough%2C+ON+M1B+5P8&amp;output=embed" title="Map: Shastha Florist, 5930 Finch Ave E" tabindex="-1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <img src="media/img/inside-film-1600.jpg" srcset="media/img/inside-film-800.webp 800w, media/img/inside-film-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="lazy">
+        <div class="container">
+          <h2 class="reveal">Come in under the <em>red awning</em>.</h2>
+          <p class="reveal">5930 Finch Ave E, Unit 3 · Daily 9 am – 9 pm</p>
+          <a class="btn btn-fill reveal" href="https://www.google.com/maps/dir/?api=1&amp;destination=Shastha+Florist%2C+5930+Finch+Ave+E%2C+Scarborough%2C+ON+M1B+5P8" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#top"><img src="media/logo/logo-96.webp" width="40" height="40" alt="" loading="lazy"><span>Shastha Florist</span></a>
+          <p>Roses, carnations, bouquets made to order, garlands and pooja supplies at Morningside &amp; Finch.</p>
+          <p><a href="https://www.instagram.com/shastha__florist/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@shastha.florist" target="_blank" rel="noopener">TikTok</a></p>
+        </div>
+        <div>
+          <h2 class="footer-title">Find us</h2>
+          <p>5930 Finch Ave E, Unit 3<br>Scarborough, ON M1B 5P8</p>
+          <p><a href="tel:+14162994010">(416) 299-4010</a></p>
+        </div>
+        <div>
+          <h2 class="footer-title">Hours</h2>
+          <p>Monday to Sunday</p>
+          <p>9 am – 9 pm</p>
+        </div>
+        <div>
+          <h2 class="footer-title">Order</h2>
+          <p><a href="tel:+14162994010">Call to order</a></p>
+          <p><a href="https://www.instagram.com/shastha__florist/" target="_blank" rel="noopener">@shastha__florist</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Concept demo prepared for Shastha Florist. Not yet the business's official website.</p>
+        <p>Hours and stock as of October 2026. Opening film AI-enhanced from photos of the premises; the shop interior in the film is illustrative.</p>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="action-bar" id="actionBar" aria-label="Quick actions">
+    <a href="https://www.instagram.com/shastha__florist/" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)">Instagram</a>
+    <a class="primary" href="tel:+14162994010" aria-label="Call (416) 299-4010">Call</a>
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Shastha+Florist%2C+5930+Finch+Ave+E%2C+Scarborough%2C+ON+M1B+5P8" target="_blank" rel="noopener">Directions</a>
+  </nav>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+ "fps": 30,
+ "frames": 165,
+ "duration": 5.5,
+ "settle": 4.35,
+ "rate": "0:2,40:2,64:1,-1:1",
+ "source_fps": 24,
+ "note": "take1 l/p, 8 s Kling 3.0 pro start-key only; invented exit-sign lettering blurred (work/track_blur.py)",
+ "l": {
+  "source_frames": 193,
+  "output_frames": 165
+ },
+ "megabytes": {
+  "film-l-hi.mp4": 5.7,
+  "film-l-lo.mp4": 2.16,
+  "film-p-hi.mp4": 5.2,
+  "film-p-lo.mp4": 2.08
+ },
+ "p": {
+  "source_frames": 193,
+  "output_frames": 165
+ }
+}
